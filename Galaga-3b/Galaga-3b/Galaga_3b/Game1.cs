@@ -18,7 +18,9 @@ namespace Galaga_3b
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        Rectangle fighter;
+        int playerSpeed;
+        Texture2D testing;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,7 +36,8 @@ namespace Galaga_3b
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2, 50, 50, 50);
+            playerSpeed = 5;
             base.Initialize();
         }
 
@@ -46,7 +49,7 @@ namespace Galaga_3b
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            testing = Content.Load<Texture2D>("White Square.png");
             // TODO: use this.Content to load your game content here
         }
 
@@ -71,7 +74,10 @@ namespace Galaga_3b
                 this.Exit();
 
             // TODO: Add your update logic here
+            if (Keyboard.isKeyDown(Keyboard.Right)
+                {
 
+            }
             base.Update(gameTime);
         }
 
@@ -84,7 +90,9 @@ namespace Galaga_3b
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            spriteBatch.Draw(testing, fighter, Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
