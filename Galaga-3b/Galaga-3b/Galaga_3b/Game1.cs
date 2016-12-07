@@ -21,6 +21,8 @@ namespace Galaga_3b
         Rectangle fighter;
         int playerSpeed;
         Texture2D testing;
+        Rectangle right;
+        Rectangle left;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -36,8 +38,10 @@ namespace Galaga_3b
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2, 50, 50, 50);
+            fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height-100, 50, 50);
             playerSpeed = 5;
+            right = new Rectangle(0, 0, 0, GraphicsDevice.Viewport.Height);
+            left = new Rectangle(GraphicsDevice.Viewport.Width,0,0,GraphicsDevice.Viewport.Height);
             base.Initialize();
         }
 
@@ -49,7 +53,7 @@ namespace Galaga_3b
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            testing = Content.Load<Texture2D>("White Square.png");
+            testing = Content.Load<Texture2D>("White Square");
             // TODO: use this.Content to load your game content here
         }
 
@@ -72,12 +76,19 @@ namespace Galaga_3b
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
+            KeyboardState key = Keyboard.GetState();
             // TODO: Add your update logic here
-            if (Keyboard.isKeyDown(Keyboard.Right)
-                {
-
+            if (key.IsKeyDown(Keys.Right))
+            {
+                fighter.X += playerSpeed;
             }
+            if(key.IsKeyDown(Keys.Left))
+            {
+                fighter.X -= playerSpeed;
+            }
+            if (fighter.Intersects(right)){ fighter.X += playerSpeed; }
+            if (fighter.Intersects(left)) { fighter.X -= playerSpeed; }
+
             base.Update(gameTime);
         }
 
