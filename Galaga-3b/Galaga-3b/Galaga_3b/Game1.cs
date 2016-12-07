@@ -20,9 +20,13 @@ namespace Galaga_3b
         SpriteBatch spriteBatch;
         Rectangle fighter;
         int playerSpeed;
-        Texture2D testing;
+        int missleSpeed;
+        Texture2D player;
+        Texture2D missle;
+        Rectangle missleR;
         Rectangle right;
         Rectangle left;
+        Rectangle top;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -40,8 +44,10 @@ namespace Galaga_3b
             // TODO: Add your initialization logic here
             fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height-100, 50, 50);
             playerSpeed = 5;
+            missleR = new Rectangle(500, 500, 25, 25);
             right = new Rectangle(0, 0, 0, GraphicsDevice.Viewport.Height);
             left = new Rectangle(GraphicsDevice.Viewport.Width,0,0,GraphicsDevice.Viewport.Height);
+            top = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, 0);
             base.Initialize();
         }
 
@@ -53,7 +59,8 @@ namespace Galaga_3b
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            testing = Content.Load<Texture2D>("White Square");
+            player = Content.Load<Texture2D>("White Square");
+            missle = Content.Load<Texture2D>("White Square");
             // TODO: use this.Content to load your game content here
         }
 
@@ -86,6 +93,10 @@ namespace Galaga_3b
             {
                 fighter.X -= playerSpeed;
             }
+            if(key.IsKeyDown(Keys.Space))
+            {
+
+            }
             if (fighter.Intersects(right)){ fighter.X += playerSpeed; }
             if (fighter.Intersects(left)) { fighter.X -= playerSpeed; }
 
@@ -102,7 +113,8 @@ namespace Galaga_3b
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.Draw(testing, fighter, Color.White);
+            spriteBatch.Draw(player, fighter, Color.White);
+            spriteBatch.Draw(missle, missleR, Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }
