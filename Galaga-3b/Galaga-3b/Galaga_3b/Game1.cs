@@ -19,10 +19,21 @@ namespace Galaga_3b
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+
+        Rectangle pMissile;
+        Rectangle eMissile;
+        Rectangle player;
+
+        Texture2D playerM;
+        Texture2D enemyM;
+        Texture2D pTexture;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
         }
 
         /// <summary>
@@ -34,6 +45,11 @@ namespace Galaga_3b
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            pMissile = new Rectangle(50, 70, 20, 20);
+            eMissile = new Rectangle(50, 100, 20, 20);
+            player = new Rectangle(50, 175, 50, 50);
+
+            
 
             base.Initialize();
         }
@@ -48,6 +64,9 @@ namespace Galaga_3b
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            playerM = Content.Load<Texture2D>("pMissile.fw");
+            enemyM = Content.Load<Texture2D>("eMissile.fw");
+            pTexture = Content.Load<Texture2D>("player.fw");
         }
 
         /// <summary>
@@ -81,10 +100,14 @@ namespace Galaga_3b
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            spriteBatch.Draw(playerM, pMissile, Color.White);
+            spriteBatch.Draw(enemyM, eMissile, Color.White);
+            spriteBatch.Draw(pTexture, player, Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

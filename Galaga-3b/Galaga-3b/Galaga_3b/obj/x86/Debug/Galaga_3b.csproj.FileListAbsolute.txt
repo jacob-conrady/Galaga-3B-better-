@@ -1,0 +1,24 @@
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Galaga_3b.exe
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Galaga_3b.pdb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\obj\x86\Debug\Galaga_3b.csprojResolveAssemblyReference.cache
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\obj\x86\Debug\Galaga_3b.exe
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\obj\x86\Debug\Galaga_3b.pdb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\player.fw.xnb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\pMissile.fw.xnb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy 1.fw.xnb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy 2.fw.xnb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy 3.fw.xnb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\player death.fw.xnb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\eMissile.fw.xnb
+C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy explosion.fw.xnb

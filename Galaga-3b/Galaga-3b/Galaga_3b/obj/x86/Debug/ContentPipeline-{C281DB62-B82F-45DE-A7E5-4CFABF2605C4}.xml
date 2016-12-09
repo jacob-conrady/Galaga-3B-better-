@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>player.fw.png</Source>
+      <Name>player.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\player.fw.xnb</Output>
+      <Time>2016-12-09T13:50:36.616443-06:00</Time>
+    </Item>
+    <Item>
+      <Source>pMissile.fw.png</Source>
+      <Name>pMissile.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\pMissile.fw.xnb</Output>
+      <Time>2016-12-09T13:50:49.555443-06:00</Time>
+    </Item>
+    <Item>
+      <Source>enemy 1.fw.png</Source>
+      <Name>enemy 1.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy 1.fw.xnb</Output>
+      <Time>2016-12-09T13:51:01.775443-06:00</Time>
+    </Item>
+    <Item>
+      <Source>enemy 2.fw.png</Source>
+      <Name>enemy 2.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy 2.fw.xnb</Output>
+      <Time>2016-12-09T13:51:08.090443-06:00</Time>
+    </Item>
+    <Item>
+      <Source>enemy 3.fw.png</Source>
+      <Name>enemy 3.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy 3.fw.xnb</Output>
+      <Time>2016-12-09T13:51:13.816443-06:00</Time>
+    </Item>
+    <Item>
+      <Source>player death.fw.png</Source>
+      <Name>player death.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\player death.fw.xnb</Output>
+      <Time>2016-12-09T13:51:30.870443-06:00</Time>
+    </Item>
+    <Item>
+      <Source>eMissile.fw.png</Source>
+      <Name>eMissile.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\eMissile.fw.xnb</Output>
+      <Time>2016-12-09T13:51:40.745443-06:00</Time>
+    </Item>
+    <Item>
+      <Source>enemy explosion.fw.png</Source>
+      <Name>enemy explosion.fw</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\enemy explosion.fw.xnb</Output>
+      <Time>2016-12-09T13:51:47.878443-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{C281DB62-B82F-45DE-A7E5-4CFABF2605C4}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3bContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\124599\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T17:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T17:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T17:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-11-08T08:38:36.1228651-06:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
