@@ -18,12 +18,19 @@ namespace Galaga_3b
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        enum gameState { start,play};
+
         Rectangle fighter;
         int playerSpeed;
         int missleSpeed;
         Texture2D player;
+
         Texture2D missle;
         Rectangle missleR;
+        List<Rectangle> missles;
+        List<int> missleTimer;
+        List<Vector2> missleVelocity;
+
         Rectangle right;
         Rectangle left;
         Rectangle top;
@@ -42,8 +49,12 @@ namespace Galaga_3b
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            missles = new List<Rectangle>();
+            missleTimer = new List<int>();
+            missleVelocity = new List<Vector2>();
             fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height-100, 50, 50);
             playerSpeed = 5;
+            missleSpeed = 5;
             missleR = new Rectangle(500, 500, 25, 25);
             right = new Rectangle(0, 0, 0, GraphicsDevice.Viewport.Height);
             left = new Rectangle(GraphicsDevice.Viewport.Width,0,0,GraphicsDevice.Viewport.Height);
@@ -95,7 +106,17 @@ namespace Galaga_3b
             }
             if(key.IsKeyDown(Keys.Space))
             {
-
+                missles.Add(new Rectangle(fighter.X-fighter.Width/2, fighter.Y-fighter.Height, 10, 25));
+                missleVelocity.Add(new Vector2(2, 3));
+            }
+            for(int x=0;x<missles.Count;x++)
+            {
+                int y = missles[x].Y - (int)missleVelocity[x].Y;
+                missles[x] = new Rectangle(missles[x].X, y, missles[x].Width, missles[x].Height);
+                if (missles[x].Intersects(top))
+                {
+                    missles.Remove(missles[x]);
+                }
             }
             if (fighter.Intersects(right)){ fighter.X += playerSpeed; }
             if (fighter.Intersects(left)) { fighter.X -= playerSpeed; }
@@ -114,7 +135,10 @@ namespace Galaga_3b
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(player, fighter, Color.White);
-            spriteBatch.Draw(missle, missleR, Color.White);
+            for (int x = 0; x < missles.Count; x++)
+            {
+                spriteBatch.Draw(missle,missles[x], Color.White);
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }
