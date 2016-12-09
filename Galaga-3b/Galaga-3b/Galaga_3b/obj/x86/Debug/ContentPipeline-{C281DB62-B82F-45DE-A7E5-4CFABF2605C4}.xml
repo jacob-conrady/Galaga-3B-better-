@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>White Square.png</Source>
+      <Name>White Square</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\White Square.xnb</Output>
+      <Time>2016-11-08T14:08:47.7214935-06:00</Time>
+    </Item>
+    <Item>
+      <Source>pMissile.png</Source>
+      <Name>pMissile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\pMissile.xnb</Output>
+      <Time>2016-12-09T13:44:57.3391181-06:00</Time>
+    </Item>
+    <Item>
+      <Source>player.png</Source>
+      <Name>player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\player.xnb</Output>
+      <Time>2016-12-09T13:44:56.4921181-06:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2016-12-09T13:35:56.1166293-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{C281DB62-B82F-45DE-A7E5-4CFABF2605C4}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3bContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\130629\Desktop\GitHub\Galaga-3B-better-\Galaga-3b\Galaga-3b\Galaga_3b\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-10-27T10:08:25.5516093-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

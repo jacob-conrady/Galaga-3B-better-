@@ -18,17 +18,18 @@ namespace Galaga_3b
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
         enum gameState { start,play};
+        gameState state = gameState.start;
 
         Rectangle fighter;
         int playerSpeed;
-        int missleSpeed;
         Texture2D player;
 
         Texture2D missle;
         Rectangle missleR;
         List<Rectangle> missles;
-        List<int> missleTimer;
+        int missleTimer;
         List<Vector2> missleVelocity;
 
         Rectangle right;
@@ -50,11 +51,10 @@ namespace Galaga_3b
         {
             // TODO: Add your initialization logic here
             missles = new List<Rectangle>();
-            missleTimer = new List<int>();
             missleVelocity = new List<Vector2>();
             fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height-100, 50, 50);
             playerSpeed = 5;
-            missleSpeed = 5;
+            missleTimer = 0;
             missleR = new Rectangle(500, 500, 25, 25);
             right = new Rectangle(0, 0, 0, GraphicsDevice.Viewport.Height);
             left = new Rectangle(GraphicsDevice.Viewport.Width,0,0,GraphicsDevice.Viewport.Height);
@@ -70,8 +70,8 @@ namespace Galaga_3b
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            player = Content.Load<Texture2D>("White Square");
-            missle = Content.Load<Texture2D>("White Square");
+            player = Content.Load<Texture2D>("player");
+            missle = Content.Load<Texture2D>("pMissle");
             // TODO: use this.Content to load your game content here
         }
 
@@ -92,35 +92,46 @@ namespace Galaga_3b
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
+            KeyboardState key = Keyboard.GetState();
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            KeyboardState key = Keyboard.GetState();
             // TODO: Add your update logic here
-            if (key.IsKeyDown(Keys.Right))
+            switch (state)
             {
-                fighter.X += playerSpeed;
+                case gameState.start:
+                    state = gameState.play;
+                    break;
+                case gameState.play:
+                    if (key.IsKeyDown(Keys.Right))
+                    {
+                        fighter.X += playerSpeed;
+                    }
+                    if (key.IsKeyDown(Keys.Left))
+                    {
+                        fighter.X -= playerSpeed;
+                    }
+                    if (key.IsKeyDown(Keys.Space) && missleTimer == 0)
+                    {
+                        missles.Add(new Rectangle(fighter.X + fighter.Width / 2, fighter.Y - fighter.Height, 10, 25));
+                        missleVelocity.Add(new Vector2(1, 2));
+                        missleTimer = 60;
+                    }
+                    for (int x = 0; x < missles.Count; x++)
+                    {
+                        int y = missles[x].Y - (int)missleVelocity[x].Y;
+                        missles[x] = new Rectangle(missles[x].X, y, missles[x].Width, missles[x].Height);
+                        if (missles[x].Intersects(top))
+                        {
+                            missles.Remove(missles[x]);
+                        }
+                    }
+                    if (fighter.Intersects(right)) { fighter.X += playerSpeed; }
+                    if (fighter.Intersects(left)) { fighter.X -= playerSpeed; }
+                    if (missleTimer > 0) { missleTimer--; }
+                    break;
+                default:
+                    break;
             }
-            if(key.IsKeyDown(Keys.Left))
-            {
-                fighter.X -= playerSpeed;
-            }
-            if(key.IsKeyDown(Keys.Space))
-            {
-                missles.Add(new Rectangle(fighter.X-fighter.Width/2, fighter.Y-fighter.Height, 10, 25));
-                missleVelocity.Add(new Vector2(2, 3));
-            }
-            for(int x=0;x<missles.Count;x++)
-            {
-                int y = missles[x].Y - (int)missleVelocity[x].Y;
-                missles[x] = new Rectangle(missles[x].X, y, missles[x].Width, missles[x].Height);
-                if (missles[x].Intersects(top))
-                {
-                    missles.Remove(missles[x]);
-                }
-            }
-            if (fighter.Intersects(right)){ fighter.X += playerSpeed; }
-            if (fighter.Intersects(left)) { fighter.X -= playerSpeed; }
-
             base.Update(gameTime);
         }
 
@@ -130,7 +141,7 @@ namespace Galaga_3b
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
