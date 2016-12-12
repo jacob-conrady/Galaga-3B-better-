@@ -32,6 +32,21 @@ namespace Galaga_3b
         int missleTimer;
         List<Vector2> missleVelocity;
 
+        Texture2D enemy1;
+        Texture2D enemy2;
+        Texture2D enemy3;
+        Texture2D enemy4;
+        List<Rectangle> enemy1R;//1 for each row
+        List<Rectangle> enemy2R;
+        List<Rectangle> enemy3R;
+        List<Rectangle> enemy4R;
+        List<Rectangle> eMissles;
+        Texture2D eMissle;
+        List<Vector2> eMissleVelocity;
+        int eMissleTimer;
+        Random random;
+        int ran;
+
         Rectangle right;
         Rectangle left;
         Rectangle top;
@@ -52,10 +67,18 @@ namespace Galaga_3b
             // TODO: Add your initialization logic here
             missles = new List<Rectangle>();
             missleVelocity = new List<Vector2>();
+            enemy1R = new List<Rectangle>();
+            enemy2R = new List<Rectangle>();
+            enemy3R = new List<Rectangle>();
+            enemy4R = new List<Rectangle>();
+            eMissles = new List<Rectangle>();
+            eMissleVelocity = new List<Vector2>();
             fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height-100, 50, 50);
+            random = new Random();
+            ran = random.Next(1)+1;
             playerSpeed = 5;
             missleTimer = 0;
-            missleR = new Rectangle(500, 500, 25, 25);
+            eMissleTimer = 0;
             right = new Rectangle(0, 0, 0, GraphicsDevice.Viewport.Height);
             left = new Rectangle(GraphicsDevice.Viewport.Width,0,0,GraphicsDevice.Viewport.Height);
             top = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, 0);
@@ -72,6 +95,11 @@ namespace Galaga_3b
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = Content.Load<Texture2D>("player");
             missle = Content.Load<Texture2D>("pMissle");
+            eMissle = Content.Load<Texture2D>("White Square");
+            enemy1 = Content.Load<Texture2D>("White Square");
+            enemy2 = Content.Load<Texture2D>("White Square");
+            enemy3 = Content.Load<Texture2D>("White Square");
+            enemy4 = Content.Load<Texture2D>("White Square");
             // TODO: use this.Content to load your game content here
         }
 
@@ -128,6 +156,17 @@ namespace Galaga_3b
                     if (fighter.Intersects(right)) { fighter.X += playerSpeed; }
                     if (fighter.Intersects(left)) { fighter.X -= playerSpeed; }
                     if (missleTimer > 0) { missleTimer--; }
+                    if (eMissleTimer > 0) { eMissleTimer--; }
+                    if (eMissleTimer <= 0)
+                    {
+                        if(enemy1R.Count!=0)
+                        {
+                            fire(enemy1R[ran]);
+                        }else if (enemy2R.Count != 0) { fire(enemy2R[ran]); }
+                        else if (enemy3R.Count != 0) { fire(enemy3R[ran]); }
+                        else if (enemy4R.Count != 0) { fire(enemy4R[ran]); }
+                    }
+
                     break;
                 default:
                     break;
@@ -150,8 +189,33 @@ namespace Galaga_3b
             {
                 spriteBatch.Draw(missle,missles[x], Color.White);
             }
+            for(int x=0;x<eMissles.Count;x++)
+            {
+                spriteBatch.Draw(eMissle, eMissles[x], Color.White);
+            }
+            for(int x=0;x<enemy1R.Count();x++)
+            {
+                spriteBatch.Draw(enemy1, enemy1R[x], Color.White);
+            }
+            for (int x = 0; x < enemy2R.Count(); x++)
+            {
+                spriteBatch.Draw(enemy2, enemy2R[x], Color.White);
+            }
+            for (int x = 0; x < enemy3R.Count(); x++)
+            {
+                spriteBatch.Draw(enemy3, enemy3R[x], Color.White);
+            }
+            for (int x = 0; x < enemy4R.Count(); x++)
+            {
+                spriteBatch.Draw(enemy4, enemy4R[x], Color.White);
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }
+        public void fire(Rectangle rec)
+        {
+            eMissles.Add(new Rectangle(rec.X,rec.Y+25,10,25));
+        }
     }
+    
 }
