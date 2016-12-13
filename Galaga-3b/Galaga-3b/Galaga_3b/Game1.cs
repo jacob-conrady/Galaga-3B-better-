@@ -19,8 +19,11 @@ namespace Galaga_3b
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum gameState { start,play};
+        enum gameState { start,play,quit};
         gameState state = gameState.start;
+        string str;
+        Vector2 vc2;
+        SpriteFont spritefont1;
 
         Rectangle fighter;
         int playerSpeed;
@@ -74,11 +77,15 @@ namespace Galaga_3b
             eMissles = new List<Rectangle>();
             eMissleVelocity = new List<Vector2>();
             fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height-100, 50, 50);
+            str = "welcome to galaga 3B demo. \n press T to begin the game and R to quit the game at anytime";
+            vc2 = new Vector2(0, 50);
+
             random = new Random();
             ran = random.Next(1)+1;
-            playerSpeed = 5;
+            playerSpeed = 3;
             missleTimer = 0;
             eMissleTimer = 0;
+
             right = new Rectangle(0, 0, 0, GraphicsDevice.Viewport.Height);
             left = new Rectangle(GraphicsDevice.Viewport.Width,0,0,GraphicsDevice.Viewport.Height);
             top = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, 0);
@@ -93,8 +100,9 @@ namespace Galaga_3b
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            spritefont1 = Content.Load<SpriteFont>("SpriteFont1");
             player = Content.Load<Texture2D>("player");
-            missle = Content.Load<Texture2D>("pMissle");
+            missle = Content.Load<Texture2D>("player");
             eMissle = Content.Load<Texture2D>("White Square");
             enemy1 = Content.Load<Texture2D>("White Square");
             enemy2 = Content.Load<Texture2D>("White Square");
@@ -127,7 +135,16 @@ namespace Galaga_3b
             switch (state)
             {
                 case gameState.start:
-                    state = gameState.play;
+                    
+                    if (key.IsKeyDown(Keys.T))
+                    {
+                        state = gameState.play;
+                        str = "";
+                    }
+                    else if(key.IsKeyDown(Keys.R))
+                    {
+                        state = gameState.quit;
+                    }
                     break;
                 case gameState.play:
                     if (key.IsKeyDown(Keys.Right))
@@ -162,11 +179,19 @@ namespace Galaga_3b
                         if(enemy1R.Count!=0)
                         {
                             fire(enemy1R[ran]);
-                        }else if (enemy2R.Count != 0) { fire(enemy2R[ran]); }
-                        else if (enemy3R.Count != 0) { fire(enemy3R[ran]); }
-                        else if (enemy4R.Count != 0) { fire(enemy4R[ran]); }
+                            ran = random.Next(enemy1R.Count);
+                        }
+                        else if (enemy2R.Count != 0) { ran = random.Next(enemy2R.Count); fire(enemy2R[ran]); }
+                        else if (enemy3R.Count != 0) { ran = random.Next(enemy3R.Count); fire(enemy3R[ran]); }
+                        else if (enemy4R.Count != 0) { ran = random.Next(enemy4R.Count); fire(enemy4R[ran]); } 
                     }
-
+                    if (key.IsKeyDown(Keys.R))
+                    {
+                        state = gameState.quit;
+                    }
+                    break;
+                case gameState.quit:
+                    this.Exit();
                     break;
                 default:
                     break;
@@ -209,6 +234,7 @@ namespace Galaga_3b
             {
                 spriteBatch.Draw(enemy4, enemy4R[x], Color.White);
             }
+            spriteBatch.DrawString(spritefont1, str, vc2, Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }
