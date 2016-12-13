@@ -94,7 +94,7 @@ namespace Galaga_3b
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = Content.Load<Texture2D>("player");
-            missle = Content.Load<Texture2D>("pMissile");
+            missle = Content.Load<Texture2D>("pMissile"); //bug fixed
             eMissle = Content.Load<Texture2D>("White Square");
             enemy1 = Content.Load<Texture2D>("White Square");
             enemy2 = Content.Load<Texture2D>("White Square");
