@@ -102,7 +102,7 @@ namespace Galaga_3b
             spriteBatch = new SpriteBatch(GraphicsDevice);
             spritefont1 = Content.Load<SpriteFont>("SpriteFont1");
             player = Content.Load<Texture2D>("player");
-            missle = Content.Load<Texture2D>("player");
+            missle = Content.Load<Texture2D>("pMissile"); //bug fixed
             eMissle = Content.Load<Texture2D>("White Square");
             enemy1 = Content.Load<Texture2D>("White Square");
             enemy2 = Content.Load<Texture2D>("White Square");
