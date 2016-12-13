@@ -94,12 +94,12 @@ namespace Galaga_3b
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = Content.Load<Texture2D>("player");
-            missle = Content.Load<Texture2D>("pMissle");
-            eMissle = Content.Load<Texture2D>("White Square");
-            enemy1 = Content.Load<Texture2D>("White Square");
-            enemy2 = Content.Load<Texture2D>("White Square");
-            enemy3 = Content.Load<Texture2D>("White Square");
-            enemy4 = Content.Load<Texture2D>("White Square");
+            missle = Content.Load<Texture2D>("pMissile");
+            eMissle = Content.Load<Texture2D>("enemy 1.fw");
+            enemy1 = Content.Load<Texture2D>("enemy 1.fw");
+            enemy2 = Content.Load<Texture2D>("enemy 1.fw");
+            enemy3 = Content.Load<Texture2D>("enemy 1.fw");
+            enemy4 = Content.Load<Texture2D>("enemy 1.fw");
             // TODO: use this.Content to load your game content here
         }
 
@@ -142,7 +142,8 @@ namespace Galaga_3b
                     {
                         missles.Add(new Rectangle(fighter.X + fighter.Width / 2, fighter.Y - fighter.Height, 10, 25));
                         missleVelocity.Add(new Vector2(1, 2));
-                        missleTimer = 60;
+                        missleTimer = 30;
+                        enemy1R.Add(new Rectangle(fighter.X+fighter.Width/2,150,50,50));
                     }
                     for (int x = 0; x < missles.Count; x++)
                     {
@@ -159,10 +160,11 @@ namespace Galaga_3b
                     if (eMissleTimer > 0) { eMissleTimer--; }
                     if (eMissleTimer <= 0)
                     {
-                        if(enemy1R.Count!=0)
+                        if (enemy1R.Count != 0)
                         {
                             fire(enemy1R[ran]);
-                        }else if (enemy2R.Count != 0) { fire(enemy2R[ran]); }
+                        }
+                        else if (enemy2R.Count != 0) { fire(enemy2R[ran]); }
                         else if (enemy3R.Count != 0) { fire(enemy3R[ran]); }
                         else if (enemy4R.Count != 0) { fire(enemy4R[ran]); }
                     }
