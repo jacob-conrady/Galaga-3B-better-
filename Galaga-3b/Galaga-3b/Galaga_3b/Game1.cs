@@ -19,7 +19,11 @@ namespace Galaga_3b
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+<<<<<<< HEAD
         enum gameState { start,play,quit};
+=======
+        enum gameState { start,play,hit,quit};
+>>>>>>> master
         gameState state = gameState.start;
         string str;
         Vector2 vc2;
@@ -28,12 +32,15 @@ namespace Galaga_3b
         Rectangle fighter;
         int playerSpeed;
         Texture2D player;
+        int playerLifes;
 
         Texture2D missle;
         Rectangle missleR;
         List<Rectangle> missles;
         int missleTimer;
         List<Vector2> missleVelocity;
+        int hitTimer;
+        int score;
 
         Texture2D enemy1;
         Texture2D enemy2;
@@ -53,6 +60,7 @@ namespace Galaga_3b
         Rectangle right;
         Rectangle left;
         Rectangle top;
+        Rectangle bottom;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -77,18 +85,35 @@ namespace Galaga_3b
             eMissles = new List<Rectangle>();
             eMissleVelocity = new List<Vector2>();
             fighter = new Rectangle(GraphicsDevice.Viewport.Width / 2,GraphicsDevice.Viewport.Height-100, 50, 50);
+<<<<<<< HEAD
             str = "welcome to galaga 3B demo. \n press T to begin the game and R to quit the game at anytime";
             vc2 = new Vector2(0, 50);
+=======
+            str = "welcome to galaga 3B demo. \n Press T to begin the game and R to quit the game at anytime";
+            vc2 = new Vector2(0, 50);
+            playerLifes = 3;
+            score = 0;
+>>>>>>> master
 
             random = new Random();
             ran = random.Next(1)+1;
             playerSpeed = 3;
             missleTimer = 0;
             eMissleTimer = 0;
+<<<<<<< HEAD
+=======
+            hitTimer = 0;
+>>>>>>> master
 
             right = new Rectangle(0, 0, 0, GraphicsDevice.Viewport.Height);
             left = new Rectangle(GraphicsDevice.Viewport.Width,0,0,GraphicsDevice.Viewport.Height);
             top = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, 0);
+            bottom = new Rectangle(GraphicsDevice.Viewport.Height, 0, GraphicsDevice.Viewport.Width, 0);
+            enemy1R.Add(new Rectangle(GraphicsDevice.Viewport.Width-100,150,50,50));
+            for(int x=1;x<6;x++)
+            {
+                enemy1R.Add(new Rectangle(enemy1R[x-1].X-100,150,50,50));
+            }
             base.Initialize();
         }
 
@@ -104,7 +129,7 @@ namespace Galaga_3b
             player = Content.Load<Texture2D>("player");
             missle = Content.Load<Texture2D>("pMissile"); //bug fixed
             eMissle = Content.Load<Texture2D>("White Square");
-            enemy1 = Content.Load<Texture2D>("White Square");
+            enemy1 = Content.Load<Texture2D>("enemy 1");
             enemy2 = Content.Load<Texture2D>("White Square");
             enemy3 = Content.Load<Texture2D>("White Square");
             enemy4 = Content.Load<Texture2D>("White Square");
@@ -135,6 +160,7 @@ namespace Galaga_3b
             switch (state)
             {
                 case gameState.start:
+<<<<<<< HEAD
                     
                     if (key.IsKeyDown(Keys.T))
                     {
@@ -142,11 +168,21 @@ namespace Galaga_3b
                         str = "";
                     }
                     else if(key.IsKeyDown(Keys.R))
+=======
+
+                    if (key.IsKeyDown(Keys.T))
+                    {
+                        state = gameState.play;
+                    }
+                    else if (key.IsKeyDown(Keys.R))
+>>>>>>> master
                     {
                         state = gameState.quit;
                     }
                     break;
                 case gameState.play:
+
+                    str = "player lifes " + playerLifes+"\n total score "+score;
                     if (key.IsKeyDown(Keys.Right))
                     {
                         fighter.X += playerSpeed;
@@ -159,16 +195,30 @@ namespace Galaga_3b
                     {
                         missles.Add(new Rectangle(fighter.X + fighter.Width / 2, fighter.Y - fighter.Height, 10, 25));
                         missleVelocity.Add(new Vector2(1, 2));
-                        missleTimer = 60;
+                        missleTimer = 30;
                     }
                     for (int x = 0; x < missles.Count; x++)
                     {
                         int y = missles[x].Y - (int)missleVelocity[x].Y;
                         missles[x] = new Rectangle(missles[x].X, y, missles[x].Width, missles[x].Height);
+
+                        for (int e = 0; e < enemy1R.Count; e++)
+                        {
+                            if (missles[x].Intersects(enemy1R[e]))
+                            {
+                                enemy1R.Remove(enemy1R[e]);
+                                e = -1;
+                                score += 100;
+                            }
+                        }
+                        for (int e = 0; e < enemy2R.Count; e++) { if (missles[x].Intersects(enemy2R[e])) { enemy2R.Remove(enemy2R[e]); e = -1; score += 100; } }
+                        for (int e = 0; e < enemy3R.Count; e++) { if (missles[x].Intersects(enemy3R[e])) { enemy1R.Remove(enemy3R[e]); e = -1; score += 100; } }
+                        for (int e = 0; e < enemy4R.Count; e++) { if (missles[x].Intersects(enemy4R[e])) { enemy1R.Remove(enemy4R[e]); e = -1; score += 100; } }
                         if (missles[x].Intersects(top))
                         {
                             missles.Remove(missles[x]);
                         }
+                        x = 0;
                     }
                     if (fighter.Intersects(right)) { fighter.X += playerSpeed; }
                     if (fighter.Intersects(left)) { fighter.X -= playerSpeed; }
@@ -176,14 +226,37 @@ namespace Galaga_3b
                     if (eMissleTimer > 0) { eMissleTimer--; }
                     if (eMissleTimer <= 0)
                     {
-                        if(enemy1R.Count!=0)
+                        if (enemy1R.Count != 0)
                         {
+                            ran = random.Next(enemy1R.Count);
                             fire(enemy1R[ran]);
+<<<<<<< HEAD
                             ran = random.Next(enemy1R.Count);
                         }
                         else if (enemy2R.Count != 0) { ran = random.Next(enemy2R.Count); fire(enemy2R[ran]); }
                         else if (enemy3R.Count != 0) { ran = random.Next(enemy3R.Count); fire(enemy3R[ran]); }
                         else if (enemy4R.Count != 0) { ran = random.Next(enemy4R.Count); fire(enemy4R[ran]); } 
+=======
+                        }
+                        else if (enemy2R.Count != 0) { fire(enemy2R[ran]); }
+                        else if (enemy3R.Count != 0) { fire(enemy3R[ran]); }
+                        else if (enemy4R.Count != 0) { fire(enemy4R[ran]); }
+
+                    }
+                    for(int x=0;x<eMissles.Count;x++)
+                    {
+                        int y = eMissles[x].Y + (int)eMissleVelocity[x].Y;
+                        eMissles[x] = new Rectangle(eMissles[x].X, y, eMissles[x].Width, eMissles[x].Height);
+                        if (eMissles[x].Intersects(bottom)) { eMissles.Remove(eMissles[x]); }
+                        if (eMissles[x].Intersects(fighter))
+                        {
+                            hitTimer = 180;
+                            playerLifes--;
+                            eMissles.Remove(eMissles[x]);
+                            for (int c = 0; c < eMissles.Count; c++) { eMissles.Remove(eMissles[c]); }
+                            state = gameState.hit;
+                        }
+>>>>>>> master
                     }
                     if (key.IsKeyDown(Keys.R))
                     {
@@ -192,6 +265,18 @@ namespace Galaga_3b
                     break;
                 case gameState.quit:
                     this.Exit();
+<<<<<<< HEAD
+=======
+                    break;
+                case gameState.hit:
+                    hitTimer--;
+                    str = "hit";
+                    if (hitTimer == 0)
+                    {
+                        str = "done";
+                        state = gameState.play;
+                    }
+>>>>>>> master
                     break;
                 default:
                     break;
@@ -240,7 +325,9 @@ namespace Galaga_3b
         }
         public void fire(Rectangle rec)
         {
-            eMissles.Add(new Rectangle(rec.X,rec.Y+25,10,25));
+            eMissles.Add(new Rectangle(rec.X+rec.Width/2,rec.Y+25,10,25));
+            eMissleVelocity.Add(new Vector2(1, 2));
+            if (eMissles.Count != 1) { eMissleTimer = 30; }else { eMissleTimer = 180; }
         }
     }
     
